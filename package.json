@@ -2,6 +2,24 @@
   "name": "epstein-files-scraper",
   "version": "1.0.0",
   "description": "scrapes epstein files from justice.gov/epstein",
+  "keywords": [
+    "epstein",
+    "epstein-files",
+    "doj",
+    "justice-gov",
+    "trump",
+    "maxwell",
+    "doj-files",
+    "jeffrey-epstein"
+  ],
+  "homepage": "https://github.com/j0code/epstein-files-scraper#readme",
+  "bugs": {
+    "url": "https://github.com/j0code/epstein-files-scraper/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j0code/epstein-files-scraper.git"
+  },
   "license": "GPL-3.0-or-later",
   "author": "j0code",
   "type": "module",
