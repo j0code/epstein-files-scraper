@@ -11,16 +11,18 @@ export async function saveFile(stream: ReadableStream, path: string) {
 	const fullPath = `${LIVE_PATH}${path}`
 	const dirPath = fullPath.substring(0, fullPath.lastIndexOf("/"))
 
-	await fs.mkdir(dirPath, { recursive: true })
+    try {
+        await fs.mkdir(dirPath, { recursive: true })
 
-	pipeline(
-		stream,
-		createWriteStream(fullPath)
-	).then(() => {
+        await pipeline(
+            stream,
+            createWriteStream(fullPath)
+        )
 
-	})
-
-	console.log("saved  ", path)
+        console.log("saved  ", path)
+    } catch (e) {
+        console.error("error  ", `piping file ${path}\n`, e)
+    }
 }
 
 export async function readTextBody(body: ReadableStream): Promise<string> {
