@@ -12,7 +12,10 @@ export async function saveFile(stream: ReadableStream, path: string) {
 	const dirPath = fullPath.substring(0, fullPath.lastIndexOf("/"))
 
     try {
-        await fs.mkdir(dirPath, { recursive: true })
+		const dirExists = await fs.stat(dirPath).then(() => true).catch(() => false)
+		if (!dirExists) {
+			await fs.mkdir(dirPath, { recursive: true })
+		}
 
         await pipeline(
             stream,
